@@ -111,6 +111,7 @@ SESSION.headers.update({
 
 # TODO Universe API can be grabbed 50 at a time. 
 # TODO Fetch MEDIA for data as well
+# TODO Add retry and backoff
 def fetch_game_public_info(game_id: int) -> Dict[str, Any]:
     """
     Return dict with fields like:
@@ -154,7 +155,6 @@ def fetch_game_public_info(game_id: int) -> Dict[str, Any]:
 # -----------------------------
 # Main snapshot routine
 # -----------------------------
-# TODO Upload to external database
 def take_snapshot(game_ids: List[int]) -> int:
     os.makedirs("data", exist_ok=True)
 
